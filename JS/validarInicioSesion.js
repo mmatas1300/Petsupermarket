@@ -1,5 +1,3 @@
-// import { ControladorRegistro } from "./controladorRegistro.js";
-
 document.getElementById("formulario-inicio-sesion").addEventListener("submit", (event) => {
 
   // LLimpiar alertas
@@ -21,8 +19,6 @@ document.getElementById("formulario-inicio-sesion").addEventListener("submit", (
 
   // Verificar datos de usuario
   if (verificacarInicioSesion(usuarioActual)) {
-   // const miControladorRegistro = new ControladorRegistro();
-  //const usuarioRegistrado = miControladorRegistro.buscarRegistroLocalStorage(usuarioActual.username, usuarioActual.password);
   console.log(usuarioActual);  
   loginUsuario(usuarioActual);  
 }

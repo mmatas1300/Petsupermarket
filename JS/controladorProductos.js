@@ -252,7 +252,7 @@ function filtradoPorCheckboxes(jsonDeLocalStorage) {
           break;
         }
         case "Royal Cannin": {
-          jsonModificado = jsonModificado.filter((producto) => producto.marcaProducto == 'Royal Cannin');
+          jsonModificado = jsonModificado.filter((producto) => producto.marcaProducto == 'Royal Canin');
           break;
         }
         case "Canidae": {

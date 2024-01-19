@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 row.appendChild(cantidad);
 
                 subtotal.classList.add("subtotal");
-                subtotal.textContent = producto.precioProducto; // Subtotal inicial
+                subtotal.textContent = (producto.precioProducto*producto.cantidadProducto).toFixed(2); // Subtotal inicial 
                 row.appendChild(subtotal);
 
                 tableBody.appendChild(row);

@@ -1,5 +1,5 @@
 // ================================ Validar Formulario Registro =========================================
-// import { ControladorRegistro } from "./controladorRegistro.js";
+
 
 document.getElementById("formulario-registro").addEventListener("submit", (event) =>  {
 
@@ -31,18 +31,9 @@ const registro = {
 }
 
 // Verificar datos del formulario son validos antes de enviar
-    if(validarRegistro(registro)){
-        // const miControladorRegistro = new ControladorRegistro();
+    if(validarRegistro(registro)){      
         registrarUsuario(registro);
-        // miControladorRegistro.agregarRegistro(
-        //     registro.nombre,
-        //     registro.telefono,
-        //     registro.email,
-        //     registro.contrasena,
-        //     registro.direccion,
-        //     registro.ciudad,
-        //     registro.cp,
-        //     registro.nacimiento);
+      
 
 // Limpiar los campos del formulario       
         document.getElementById("registro-completado-exitosamente").style.display="block";
