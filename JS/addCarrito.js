@@ -45,6 +45,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 nombreProducto.textContent = producto.nombreProducto;
                 row.appendChild(nombreProducto);
                 precio.textContent = producto.precioProducto;
+
+
                 row.appendChild(precio);
                 inputCantidad.type = "number";
                 inputCantidad.value = producto.cantidadProducto;
