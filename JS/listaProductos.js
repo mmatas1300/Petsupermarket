@@ -61,7 +61,8 @@ const storedURL = localStorage.getItem('productosAPIURL');
           productoCarrito.id,
           productoCarrito.nombre,
           productoCarrito.precio,
-          1
+          1,
+          productoCarrito.descuento
         );
       });
     });

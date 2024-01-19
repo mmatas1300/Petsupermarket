@@ -5,13 +5,14 @@ export class ControladorCarrito {
     }
   
     // Función agregar productos
-    agregarProducto(id, name, price, quantity) {
+    agregarProducto(id, name, price, quantity, descuento) {
         this.productos = this.cargarProductosFromLocalStorage();
       const producto = {
         id: id,
         nombreProducto: name,
         precioProducto: Number(price),
         cantidadProducto: quantity,
+        descuentoProducto: descuento
       };
       if(this.productos.find(productoFLS => productoFLS.id === producto.id)){
         const indexProductoExistente = this.productos.findIndex(productoFLS => productoFLS.id === producto.id);

@@ -44,9 +44,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 row.appendChild(eliminar);
                 nombreProducto.textContent = producto.nombreProducto;
                 row.appendChild(nombreProducto);
+                const preciosBajos = (producto.descuentoProducto>0) ? producto.precioProducto - (producto.precioProducto * producto.descuentoProducto) / 100 : producto.precioProducto;
+                producto.precioProducto = preciosBajos.toFixed(2);
                 precio.textContent = producto.precioProducto;
-
-
+                
                 row.appendChild(precio);
                 inputCantidad.type = "number";
                 inputCantidad.value = producto.cantidadProducto;

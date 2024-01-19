@@ -347,7 +347,9 @@ const imprimirDOMFiltros =  (listaProductos) => {
         productoCarrito.id,
         productoCarrito.nombreProducto,
         productoCarrito.precioProducto,
-        1);
+        1,
+        productoCarrito.descuentoProducto
+        );
       
     });
   })
