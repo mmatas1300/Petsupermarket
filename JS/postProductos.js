@@ -102,8 +102,8 @@ const enviarDatosAlServidor = async (producto) => {
 
   console.table(productoPost);
 
-  //const url = "http://petsupermarket.onrender.com/api/v1/productos"
-  const url = "http://localhost:8080/api/v1/productos";
+  const url = "https://petsupermarket-be.onrender.com/api/v1/productos"
+  // const url = "http://localhost:8080/api/v1/productos";
 
   try {
     const response = await fetch(url, {

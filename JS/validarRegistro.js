@@ -128,7 +128,7 @@ const registro = {
                 }
      }
 
-     fetch('http://localhost:8080/api/v1/usuarios', {
+     fetch('https://petsupermarket-be.onrender.com/api/v1/usuarios', {
         method: 'POST', // or 'PUT'
         headers: {
          'Content-Type': 'application/json',

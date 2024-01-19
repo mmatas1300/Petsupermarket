@@ -54,7 +54,7 @@ const loginUsuario  = async (usuario) => {
       contraseña: usuario.password
     }  
 
-const url =  "http://localhost:8080/api/v1/usuarios/query?email=" + usuario.username;
+const url =  "https://petsupermarket-be.onrender.com/api/v1/usuarios/query?email=" + usuario.username;
    try {
     const response = await fetch( url ,{
         method: "POST",

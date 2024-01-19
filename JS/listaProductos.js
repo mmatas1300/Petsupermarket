@@ -3,7 +3,7 @@ import { ControladorCarrito } from "../JS/controladorCarrito.js";
 
 const imprimirDOMFromAPI = async (Controlador) => {
 const storedURL = localStorage.getItem('productosAPIURL');
-  const url = "http://localhost:8080/api/v1/productos";
+  const url = "https://petsupermarket-be.onrender.com/api/v1/productos";
 
   try {
     const response = await fetch(url);
