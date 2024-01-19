@@ -251,7 +251,7 @@ function filtradoPorCheckboxes(jsonDeLocalStorage) {
           jsonModificado = jsonModificado.filter((producto) => producto.marcaProducto == 'Whole Hearted');
           break;
         }
-        case "Royal Cannin": {
+        case "Royal Canin": {
           jsonModificado = jsonModificado.filter((producto) => producto.marcaProducto == 'Royal Canin');
           break;
         }
