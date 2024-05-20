@@ -1,49 +1,59 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  --colorNaranjaHeader: #fdc35a;
+  --colorNaranjaFondoTextos: #ffd486;
+  --colorNaranjaFooterYBotones: #f68035;
+  --colorNaranjaFondoBarraListas: #fee1ac;
+  --colorNaranjaFondoFormularios: #f5b27f;
+  --colorVerdeFondo: #008f7a;
+  --fuenteTextoTitulos: "Montserrat", sans-serif;
+  --fuenteTextoCuerpo: "Hind", sans-serif;
+  color: black;
+  background-color: white;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+a{
+  text-decoration: none;
+  color: black;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+nav{
+  background-color: var(--colorNaranjaHeader);
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
+button{
+  font-family: var(--fuenteTextoTitulos);
+  background-color: var(--colorNaranjaFooterYBotones);
   border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+  padding: 5px 15px;
+  border: none;
 }
-button:hover {
-  border-color: #646cff;
+
+input{
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
 }
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+
+input:focus-visible {
+  outline: 0;
+}
+
+.nav-item{
+  font-family: var(--fuenteTextoTitulos);
+  text-align: center;
+  margin: 5px;
+}
+
+.navbar-toggler{
+  background-color: var(--colorVerdeFondo);
+  border: none;
+  outline: 0;
+}
+
+.navbar-toggler:focus{
+  box-shadow: none;
+}
+
+.search-button{
+  padding: 10px 15px;
 }
