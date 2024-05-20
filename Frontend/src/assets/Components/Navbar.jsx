@@ -17,7 +17,7 @@ export default function Navbar() {
                 <div className="order-3 collapse navbar-collapse d-lg-flex justify-content-lg-around align-items-lg-center" id="navbarSupportedContent">
                     <div class="d-flex flex-column d-lg-flex flex-lg-row justify-content-lg-around align-items-lg-center w-100">
                         <ul className="navbar-nav order-1 order-lg-0">
-                            <li className="nav-item mx-3">
+                            <li className="nav-item ml-3">
                                 <Link to={'/'}>Inicio</Link>
                             </li>
                             <li className="nav-item mx-3">
@@ -29,12 +29,12 @@ export default function Navbar() {
                             <li className="nav-item mx-3">
                                 <Link to={'/contacto'}>Contacto</Link>
                             </li>
-                            <li className="nav-item mx-3">
+                            <li className="nav-item mr-3">
                                 <Link to={'/nosotros'}>Nosotros</Link>
                             </li>
                         </ul>
                         <form className="order-0 order-lg-1 text-center my-3" role="search">
-                            <input className="me-2" type="text" placeholder="Busca tus productos" aria-label="Search"/>
+                            <input className="me-2 searchNavbar" type="text" placeholder="Busca tus productos" aria-label="Search"/>
                             <button className="search-button" type="submit">
                                 <SearchIcon size={20} />
                             </button>

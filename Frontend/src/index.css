@@ -16,6 +16,11 @@ body{
   font-family: var(--fuenteTextoCuerpo);
 }
 
+h1{
+  font-family: var(--fuenteTextoTitulos);
+  font-size: 20px;
+}
+
 a{
   text-decoration: none;
   color: black;
@@ -34,7 +39,7 @@ button{
   font-family: var(--fuenteTextoTitulos);
   background-color: var(--colorNaranjaFooterYBotones);
   border-radius: 8px;
-  padding: 5px 15px;
+  padding: 10px 15px;
   border: none;
 }
 
@@ -71,4 +76,8 @@ input:focus-visible {
 .fi{
   font-size: 24px;
   margin: 0 16px;
+}
+
+.searchNavbar{
+  width: 160px;
 }
