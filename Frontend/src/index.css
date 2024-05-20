@@ -9,6 +9,11 @@
   --fuenteTextoCuerpo: "Hind", sans-serif;
   color: black;
   background-color: white;
+
+}
+
+body{
+  font-family: var(--fuenteTextoCuerpo);
 }
 
 a{
@@ -18,6 +23,11 @@ a{
 
 nav{
   background-color: var(--colorNaranjaHeader);
+}
+
+footer{
+  background-color: var(--colorNaranjaFooterYBotones);
+  bottom: 0;
 }
 
 button{
@@ -56,4 +66,9 @@ input:focus-visible {
 
 .search-button{
   padding: 10px 15px;
+}
+
+.fi{
+  font-size: 24px;
+  margin: 0 16px;
 }
