@@ -103,3 +103,37 @@ input:focus-visible {
   background-color: var(--colorNaranjaFondoTextos);
   border-radius: 8px;
 }
+
+.dropdown-toggle{
+  background-color: var(--colorVerdeFondo);
+  min-width: 60px;
+  width: 80%;
+}
+
+.bg-filters{
+  background-color: var(--colorNaranjaFondoBarraListas);
+}
+
+.background-card{
+  background-color: var(--colorNaranjaFondoFormularios);
+  border-radius: 8px;
+  text-align: center;
+  padding: 12px 0;
+  font-family: var(--fuenteTextoTitulos);
+}
+
+.oferta-card{
+  background-color: var(--colorNaranjaFooterYBotones);
+  border-radius: 4px;
+  padding: 4px;
+}
+
+.form-check-input:checked {
+  background-color: var(--colorVerdeFondo);
+  border-color: var(--colorVerdeFondo);
+}
+
+.opinion{
+  background-color: var(--colorNaranjaFondoTextos);
+  border-radius: 8px;
+}
