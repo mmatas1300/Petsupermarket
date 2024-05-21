@@ -9,7 +9,6 @@ export const ProductCard = ({producto})=>{
                 <p className="mb-2">{`$${(producto.precio*(100-producto.descuento)/100).toFixed(2)}`}</p>
                 </>
             ):(<p className="mb-2">{`$${(producto.precio).toFixed(2)}`}</p>)}
-
         </div>
     );
 };

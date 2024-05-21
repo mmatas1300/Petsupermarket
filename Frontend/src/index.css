@@ -21,6 +21,11 @@ h1{
   font-size: 20px;
 }
 
+h2{
+  font-family: var(--fuenteTextoTitulos);
+  font-size: 16px;
+}
+
 a{
   text-decoration: none;
   color: black;
@@ -94,3 +99,7 @@ input:focus-visible {
   text-decoration: line-through;
 }
 
+.mision-container{
+  background-color: var(--colorNaranjaFondoTextos);
+  border-radius: 8px;
+}

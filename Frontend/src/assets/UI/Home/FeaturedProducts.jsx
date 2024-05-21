@@ -14,8 +14,6 @@ export const FeaturedProducts = () => {
                     return <ProductCard producto={producto} />
                 })}
             </div>
-
-
             <Link to={'/productos'} className="text-center mt-2">
                 <button>Ver más productos</button>
             </Link>
