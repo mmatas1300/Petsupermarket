@@ -1,4 +1,4 @@
-INSERT INTO usuarios (nombre, direccion, telefono, email, `password`, fechaNacimiento, ciudad, cp, rol_id)
+INSERT INTO usuarios (nombre, direccion, telefono, email, `password`, fecha_nacimiento, ciudad, cp, rol_id)
 VALUES
 ('Olivia Rivas', 'Av. Insurgentes Sur 1234, Col. Del Valle', '123456789', 'olivia@gmail.com', 'contraseña1', '2000-01-01', 'CDMX','54909', 1),
 ('Cynthia Rosales', 'Av. Paseo de la Reforma 567, Col. Juárez', '123456780', 'cynthia@hotmail.com', 'contraseña2', '1999-02-02','CDMX','54909', 1),

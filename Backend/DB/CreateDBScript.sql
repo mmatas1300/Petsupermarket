@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `db_petsupermarket`.`Usuarios` (
   `telefono` VARCHAR(30) NOT NULL,
   `email` VARCHAR(120) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
-  `fechaNacimiento` TIMESTAMP NOT NULL,
+  `fecha_nacimiento` TIMESTAMP NOT NULL,
   `ciudad` VARCHAR(45) NOT NULL,
   `cp` VARCHAR(10) NOT NULL,
   `Rol_id` BIGINT NOT NULL,
@@ -105,7 +105,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `db_petsupermarket`.`Comentarios` (
   `id` BIGINT NOT NULL AUTO_INCREMENT,
-  `fecha` DATETIME NOT NULL,
+  `fecha` TIMESTAMP NOT NULL,
   `comentario` VARCHAR(100) NULL,
   `calificacion` INT NOT NULL,
   `Usuarios_id` BIGINT NOT NULL,
