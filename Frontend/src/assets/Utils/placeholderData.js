@@ -65,7 +65,7 @@ export const productos = [
     "animales": "Perro",
     "categoria": "Croquetas",
     "existencia": 5,
-    "descripcion": "Croquetas Science Diet para perros adultos. Nutrición balanceada para una vida saludable."
+    "descripcion": "Croquetas Science Diet para perros adultos. Nutrición balanceada para una vida saludable.",
   },
   {
     "id": 2,
@@ -183,5 +183,22 @@ export const productos = [
     "categoria": "Croquetas",
     "existencia": 5,
     "descripcion": "Croquetas Real Bison, Beef+Sweat Potato Recipe de Merrick para perros. Elaboradas con carne de bisonte real, carne de res y batata."
+  }
+]
+
+export const comentarios =[
+  {
+    id: 1,
+    fecha: new Date("2020"),
+    comentario: "Me desagarado",
+    calificacion: 2,
+    usuario: "Mariano"
+  },
+  {
+    id: 2,
+    fecha: new Date("2023"),
+    comentario: "Muy buena calidad y un precio muy competitivo. Me impresionó las calidad del sonido, después de ajustar lo controles. La calidad de imagen corresponde al precio, son embargo los vídeos 4k se ven increíblemente bien, pensando que ahora Youtube tiene este tipo de contenidos la resolución no te deja para nada decepcionado. Definitivamente compraría una tv de esta marca más adelante de mayor tamaño. Valen la pena.",
+    calificacion: 5,
+    usuario: "Andrea Camacho Samara"
   }
 ]
