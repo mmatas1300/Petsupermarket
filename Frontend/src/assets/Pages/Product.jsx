@@ -16,7 +16,7 @@ export default function Products() {
 
             <div className="d-flex flex-column justify-content-center align-items-center my-5">
                 <h2>Comentarios y calificaciones</h2>
-                {comentarios.map((comentario)=>{return <Opinion comentario={comentario}/>})}
+                {comentarios.map((comentario)=>{return <Opinion key={comentario.id} comentario={comentario}/>})}
                 
                 <h2>Escriba su opinion</h2>
                 <FormOpinion/> 

@@ -33,7 +33,7 @@ export default function Navbar() {
                                 <Link to={'/nosotros'}>Nosotros</Link>
                             </li>
                         </ul>
-                        <form className="order-0 order-lg-1 text-center my-3" role="search">
+                        <form className="order-0 order-lg-1 text-center my-3 bg-none" role="search">
                             <input className="me-2 searchNavbar" type="text" placeholder="Busca tus productos" aria-label="Search"/>
                             <button className="search-button" type="submit">
                                 <SearchIcon size={20} />
