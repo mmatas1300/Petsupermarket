@@ -5,8 +5,8 @@ import lombok.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
 @Setter
+@Getter
 @ToString
 @Entity
 @Table(name = "roles")
@@ -18,5 +18,4 @@ public class Rol {
     private String nombre;
     @Column(name = "descripcion", nullable = false, length = 45)
     private String descripcion;
-
 }
