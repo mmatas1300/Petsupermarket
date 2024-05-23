@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `db_petsupermarket`.`Usuarios` (
   `direccion` VARCHAR(300) NOT NULL,
   `telefono` VARCHAR(30) NOT NULL,
   `email` VARCHAR(120) NOT NULL,
-  `password` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(300) NOT NULL,
   `fecha_nacimiento` TIMESTAMP NOT NULL,
   `ciudad` VARCHAR(45) NOT NULL,
   `cp` VARCHAR(10) NOT NULL,

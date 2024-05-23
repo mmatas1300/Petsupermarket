@@ -12,7 +12,7 @@ import java.sql.Timestamp;
 @ToString
 @Entity
 @Table(name="usuarios")
-public class User {
+public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
