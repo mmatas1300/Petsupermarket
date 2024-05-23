@@ -4,6 +4,7 @@ import com.petsupermarket.restapi.models.Producto;
 import com.petsupermarket.restapi.service.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,5 +25,10 @@ public class ProductoController {
     @GetMapping("/discount")
     public List<Producto> readAllDiscountProduct(){
         return productoService.readAllDiscountProducto();
+    }
+
+    @GetMapping("{id}")
+    public Producto readProduct(@PathVariable("id") Long id){
+        return productoService.readProducto(id);
     }
 }

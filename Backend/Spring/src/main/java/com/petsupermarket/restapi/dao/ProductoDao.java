@@ -7,5 +7,5 @@ import java.util.List;
 public interface ProductoDao {
     List<Producto> readAllProducto();
     List<Producto> readAllDiscountProducto();
-    Producto readProducto(Producto producto);
+    Producto readProducto(Long productoId);
 }

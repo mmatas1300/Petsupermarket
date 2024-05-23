@@ -27,7 +27,7 @@ public class ProductoDaoImpl implements ProductoDao {
     }
 
     @Override
-    public Producto readProducto(Producto producto) {
-        return entityManager.find(Producto.class, producto);
+    public Producto readProducto(Long productoId) {
+        return entityManager.find(Producto.class, productoId);
     }
 }

@@ -21,4 +21,8 @@ public class ProductoService {
         return productoDao.readAllDiscountProducto();
     }
 
+    public Producto readProducto(Long productoId){
+        return productoDao.readProducto(productoId);
+    }
+
 }
