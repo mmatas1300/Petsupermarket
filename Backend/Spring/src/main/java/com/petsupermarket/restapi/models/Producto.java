@@ -36,10 +36,10 @@ public class Producto {
     private String marca;
 
     @ManyToOne
-    @JoinColumn(name = "Animales_id", nullable = false)
+    @JoinColumn(name = "animal_id", nullable = false)
     private Animal animal;
 
     @ManyToOne
-    @JoinColumn(name = "Categorias_id", nullable = false)
+    @JoinColumn(name = "categoria_id", nullable = false)
     private Categoria categoria;
 }

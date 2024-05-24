@@ -5,167 +5,178 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+-- -----------------------------------------------------
 -- Schema db_petsupermarket
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
 -- Schema db_petsupermarket
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `db_petsupermarket` DEFAULT CHARACTER SET utf8 ;
+CREATE SCHEMA IF NOT EXISTS `db_petsupermarket` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci ;
 USE `db_petsupermarket` ;
 
 -- -----------------------------------------------------
--- Table `db_petsupermarket`.`Roles`
+-- Table `db_petsupermarket`.`animales`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_petsupermarket`.`Roles` (
-  `id` BIGINT NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(45) NOT NULL,
-  `descripcion` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `db_petsupermarket`.`Usuarios`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_petsupermarket`.`Usuarios` (
-  `id` BIGINT NOT NULL AUTO_INCREMENT,
-  `nombre` VARCHAR(70) NOT NULL,
-  `direccion` VARCHAR(300) NOT NULL,
-  `telefono` VARCHAR(30) NOT NULL,
-  `email` VARCHAR(120) NOT NULL,
-  `password` VARCHAR(300) NOT NULL,
-  `fecha_nacimiento` TIMESTAMP NOT NULL,
-  `ciudad` VARCHAR(45) NOT NULL,
-  `cp` VARCHAR(10) NOT NULL,
-  `Rol_id` BIGINT NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_Usuario_Rol_idx` (`Rol_id` ASC) VISIBLE,
-  CONSTRAINT `fk_Usuario_Rol`
-    FOREIGN KEY (`Rol_id`)
-    REFERENCES `db_petsupermarket`.`Roles` (`id`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `db_petsupermarket`.`Animales`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_petsupermarket`.`Animales` (
+CREATE TABLE IF NOT EXISTS `db_petsupermarket`.`animales` (
   `id` BIGINT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
-ENGINE = InnoDB;
+ENGINE = InnoDB
+AUTO_INCREMENT = 3
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `db_petsupermarket`.`Categorias`
+-- Table `db_petsupermarket`.`categorias`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_petsupermarket`.`Categorias` (
+CREATE TABLE IF NOT EXISTS `db_petsupermarket`.`categorias` (
   `id` BIGINT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
-ENGINE = InnoDB;
+ENGINE = InnoDB
+AUTO_INCREMENT = 4
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `db_petsupermarket`.`Productos`
+-- Table `db_petsupermarket`.`productos`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_petsupermarket`.`Productos` (
+CREATE TABLE IF NOT EXISTS `db_petsupermarket`.`productos` (
+  `descuento` INT NOT NULL,
+  `precio` FLOAT NOT NULL,
+  `animal_id` BIGINT NOT NULL,
+  `categoria_id` BIGINT NOT NULL,
+  `existencia` BIGINT NOT NULL,
   `id` BIGINT NOT NULL AUTO_INCREMENT,
+  `contenido` VARCHAR(45) NOT NULL,
+  `marca` VARCHAR(45) NOT NULL,
   `nombre` VARCHAR(45) NOT NULL,
   `descripcion` VARCHAR(200) NOT NULL,
-  `contenido` VARCHAR(45) NOT NULL,
-  `precio` DECIMAL NOT NULL,
-  `descuento` INT NOT NULL,
-  `existencia` BIGINT NOT NULL,
   `imagen` VARCHAR(500) NOT NULL,
-  `marca` VARCHAR(45) NOT NULL,
-  `Animales_id` BIGINT NOT NULL,
-  `Categorias_id` BIGINT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_Productos_Animales1_idx` (`Animales_id` ASC) VISIBLE,
-  INDEX `fk_Productos_Categorias1_idx` (`Categorias_id` ASC) VISIBLE,
-  CONSTRAINT `fk_Productos_Animales1`
-    FOREIGN KEY (`Animales_id`)
-    REFERENCES `db_petsupermarket`.`Animales` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Productos_Categorias1`
-    FOREIGN KEY (`Categorias_id`)
-    REFERENCES `db_petsupermarket`.`Categorias` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+  INDEX `FK8cyyhi0ewpm4j4iayscm0ta9i` (`animal_id` ASC) VISIBLE,
+  INDEX `FK2fwq10nwymfv7fumctxt9vpgb` (`categoria_id` ASC) VISIBLE,
+  CONSTRAINT `FK2fwq10nwymfv7fumctxt9vpgb`
+    FOREIGN KEY (`categoria_id`)
+    REFERENCES `db_petsupermarket`.`categorias` (`id`),
+  CONSTRAINT `FK8cyyhi0ewpm4j4iayscm0ta9i`
+    FOREIGN KEY (`animal_id`)
+    REFERENCES `db_petsupermarket`.`animales` (`id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 9
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `db_petsupermarket`.`Comentarios`
+-- Table `db_petsupermarket`.`roles`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_petsupermarket`.`Comentarios` (
+CREATE TABLE IF NOT EXISTS `db_petsupermarket`.`roles` (
   `id` BIGINT NOT NULL AUTO_INCREMENT,
-  `fecha` TIMESTAMP NOT NULL,
-  `comentario` VARCHAR(100) NULL,
+  `descripcion` VARCHAR(45) NOT NULL,
+  `nombre` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 3
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `db_petsupermarket`.`usuarios`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_petsupermarket`.`usuarios` (
+  `fecha_nacimiento` DATETIME(6) NOT NULL,
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
+  `rol_id` BIGINT NOT NULL,
+  `cp` VARCHAR(10) NOT NULL,
+  `telefono` VARCHAR(30) NOT NULL,
+  `ciudad` VARCHAR(45) NOT NULL,
+  `nombre` VARCHAR(70) NOT NULL,
+  `email` VARCHAR(120) NOT NULL,
+  `direccion` VARCHAR(300) NOT NULL,
+  `password` VARCHAR(300) NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `FKqf5elo4jcq7qrt83oi0qmenjo` (`rol_id` ASC) VISIBLE,
+  CONSTRAINT `FKqf5elo4jcq7qrt83oi0qmenjo`
+    FOREIGN KEY (`rol_id`)
+    REFERENCES `db_petsupermarket`.`roles` (`id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 5
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `db_petsupermarket`.`comentarios`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_petsupermarket`.`comentarios` (
   `calificacion` INT NOT NULL,
-  `Usuarios_id` BIGINT NOT NULL,
-  `Productos_id` BIGINT NOT NULL,
-  PRIMARY KEY (`id`),
-  INDEX `fk_Comentarios_Usuario1_idx` (`Usuarios_id` ASC) VISIBLE,
-  INDEX `fk_Comentarios_Productos1_idx` (`Productos_id` ASC) VISIBLE,
-  CONSTRAINT `fk_Comentarios_Usuario1`
-    FOREIGN KEY (`Usuarios_id`)
-    REFERENCES `db_petsupermarket`.`Usuarios` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Comentarios_Productos1`
-    FOREIGN KEY (`Productos_id`)
-    REFERENCES `db_petsupermarket`.`Productos` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `db_petsupermarket`.`Ordenes`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_petsupermarket`.`Ordenes` (
+  `fecha` DATETIME(6) NOT NULL,
   `id` BIGINT NOT NULL AUTO_INCREMENT,
-  `fecha_pago` TIMESTAMP NULL,
-  `esta_pagado` TINYINT NULL,
-  `Usuario_id` BIGINT NOT NULL,
+  `producto_id` BIGINT NOT NULL,
+  `usuario_id` BIGINT NOT NULL,
+  `comentario` VARCHAR(100) NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_Ordenes_Usuario1_idx` (`Usuario_id` ASC) VISIBLE,
-  CONSTRAINT `fk_Ordenes_Usuario1`
-    FOREIGN KEY (`Usuario_id`)
-    REFERENCES `db_petsupermarket`.`Usuarios` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+  INDEX `FK6vkhmonbxnjd9obsfwtkm9ehi` (`producto_id` ASC) VISIBLE,
+  INDEX `FKdts62yj83qe3k748cgcjvm48r` (`usuario_id` ASC) VISIBLE,
+  CONSTRAINT `FK6vkhmonbxnjd9obsfwtkm9ehi`
+    FOREIGN KEY (`producto_id`)
+    REFERENCES `db_petsupermarket`.`productos` (`id`),
+  CONSTRAINT `FKdts62yj83qe3k748cgcjvm48r`
+    FOREIGN KEY (`usuario_id`)
+    REFERENCES `db_petsupermarket`.`usuarios` (`id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 2
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 -- -----------------------------------------------------
--- Table `db_petsupermarket`.`Ordenes_has_Productos`
+-- Table `db_petsupermarket`.`ordenes`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db_petsupermarket`.`Ordenes_has_Productos` (
+CREATE TABLE IF NOT EXISTS `db_petsupermarket`.`ordenes` (
+  `esta_pagado` BIT(1) NOT NULL,
+  `fecha_pago` DATETIME(6) NULL DEFAULT NULL,
   `id` BIGINT NOT NULL AUTO_INCREMENT,
-  `Productos_id` BIGINT NULL,
-  `Ordenes_id` BIGINT NOT NULL,
-  `cantidad` BIGINT NOT NULL,
+  `usuario_id` BIGINT NOT NULL,
   PRIMARY KEY (`id`),
-  INDEX `fk_Ordenes_has_Productos_Productos1_idx` (`Productos_id` ASC) VISIBLE,
-  INDEX `fk_Ordenes_has_Productos_Ordenes1_idx` (`Ordenes_id` ASC) VISIBLE,
-  CONSTRAINT `fk_Ordenes_has_Productos_Productos1`
-    FOREIGN KEY (`Productos_id`)
-    REFERENCES `db_petsupermarket`.`Productos` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Ordenes_has_Productos_Ordenes1`
-    FOREIGN KEY (`Ordenes_id`)
-    REFERENCES `db_petsupermarket`.`Ordenes` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+  INDEX `FKsqu43gsd6mtx7b1siww96324` (`usuario_id` ASC) VISIBLE,
+  CONSTRAINT `FKsqu43gsd6mtx7b1siww96324`
+    FOREIGN KEY (`usuario_id`)
+    REFERENCES `db_petsupermarket`.`usuarios` (`id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 4
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
+
+
+-- -----------------------------------------------------
+-- Table `db_petsupermarket`.`ordenes_has_productos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `db_petsupermarket`.`ordenes_has_productos` (
+  `cantidad` BIGINT NULL DEFAULT NULL,
+  `id` BIGINT NOT NULL AUTO_INCREMENT,
+  `orden_id` BIGINT NOT NULL,
+  `producto_id` BIGINT NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `FK42qeqhm6glv6thsvi5sgxgakh` (`orden_id` ASC) VISIBLE,
+  INDEX `FK93g7qsx0ewlcu3cdx4j1pyiga` (`producto_id` ASC) VISIBLE,
+  CONSTRAINT `FK42qeqhm6glv6thsvi5sgxgakh`
+    FOREIGN KEY (`orden_id`)
+    REFERENCES `db_petsupermarket`.`ordenes` (`id`),
+  CONSTRAINT `FK93g7qsx0ewlcu3cdx4j1pyiga`
+    FOREIGN KEY (`producto_id`)
+    REFERENCES `db_petsupermarket`.`productos` (`id`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 3
+DEFAULT CHARACTER SET = utf8mb4
+COLLATE = utf8mb4_0900_ai_ci;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

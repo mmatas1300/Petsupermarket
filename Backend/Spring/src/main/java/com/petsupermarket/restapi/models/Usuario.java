@@ -24,7 +24,7 @@ public class Usuario {
     private String telefono;
     @Column(name = "email", nullable = false, length = 120)
     private String email;
-    @Column(name = "password", nullable = false, length = 45)
+    @Column(name = "password", nullable = false, length = 300)
     private String password;
     @Column(name = "fecha_nacimiento", nullable = false)
     private Timestamp fechaNacimiento;
@@ -34,7 +34,7 @@ public class Usuario {
     private String cp;
 
     @ManyToOne
-    @JoinColumn(name="Rol_id", nullable=false)
+    @JoinColumn(name="rol_id", nullable=false)
     private Rol rol;
 }
 
