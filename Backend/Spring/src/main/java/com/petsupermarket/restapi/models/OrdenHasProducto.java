@@ -1,5 +1,6 @@
 package com.petsupermarket.restapi.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -25,5 +26,6 @@ public class OrdenHasProducto {
 
     @ManyToOne
     @JoinColumn(name = "orden_id", nullable = false)
+    @JsonIgnoreProperties({"id","fechaPago","estaPagado","usuario"})
     private Orden orden;
 }

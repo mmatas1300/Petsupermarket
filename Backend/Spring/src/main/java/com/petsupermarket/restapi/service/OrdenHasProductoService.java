@@ -9,8 +9,11 @@ import com.petsupermarket.restapi.models.OrdenHasProducto;
 import com.petsupermarket.restapi.models.Producto;
 import com.petsupermarket.restapi.models.Usuario;
 import com.petsupermarket.restapi.utils.JWTUtil;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class OrdenHasProductoService {
@@ -38,5 +41,20 @@ public class OrdenHasProductoService {
         ordenHasProducto.setProducto(productoFound);
         ordenHasProducto.setOrden(ordenFound);
         ordenHasProductoDao.createOrdenHasProducto(ordenHasProducto);
+    }
+
+    public List<OrdenHasProducto> getOrdenHasProductoByUsuario(String token){
+        String email =  jwtUtil.getValue(token);
+        Usuario usuarioFound = usuarioDao.getUsuarioByEmail(email);
+        Orden ordenFound = ordenDao.getOrdenActiveByUser(usuarioFound);
+        return ordenHasProductoDao.getOrdenHasProductoByOrden(ordenFound);
+    }
+
+    public void deleteOrdenHasProducto(OrdenHasProducto ordenHasProducto){
+        ordenHasProductoDao.deleteOrdenHasProducto(ordenHasProducto);
+    }
+
+    public void updateOrdenHasProducto(OrdenHasProducto ordenHasProducto){
+        ordenHasProductoDao.updateOrdenHasProducto(ordenHasProducto);
     }
 }
