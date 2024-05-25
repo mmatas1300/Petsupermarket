@@ -13,16 +13,28 @@ public class ProductoService {
     @Autowired
     ProductoDao productoDao;
 
-    public List<Producto> readAllProducto(){
-        return productoDao.readAllProducto();
+    public void createProducto(Producto producto){
+        productoDao.createProducto(producto);
     }
 
-    public List<Producto> readAllDiscountProducto(){
-        return productoDao.readAllDiscountProducto();
+    public List<Producto> getAllProducto(){
+        return productoDao.getAllProducto();
     }
 
-    public Producto readProducto(Long productoId){
-        return productoDao.readProducto(productoId);
+    public List<Producto> getDiscountProducto(){
+        return productoDao.getDiscountProducto();
+    }
+
+    public List<Producto> getExistingProducto(){
+        return productoDao.getExistingProducto();
+    }
+
+    public Producto getProducto(Long productoId){
+        return productoDao.getProducto(productoId);
+    }
+
+    public void updateProducto(Producto producto){
+        productoDao.updateProducto(producto);
     }
 
 }

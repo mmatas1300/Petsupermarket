@@ -1,6 +1,7 @@
 package com.petsupermarket.restapi.service;
 
 import com.petsupermarket.restapi.dao.UsuarioDao;
+import com.petsupermarket.restapi.dto.UsuarioDto;
 import com.petsupermarket.restapi.models.Usuario;
 import com.petsupermarket.restapi.utils.JWTUtil;
 import de.mkammerer.argon2.Argon2;
@@ -17,6 +18,9 @@ public class UsuarioService {
     @Autowired
     JWTUtil jwtUtil;
 
+    @Autowired
+    UsuarioDto usuarioDto;
+
     public void createUsuario(Usuario usuario){
         Argon2 argon2 = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2i);
         String hash = argon2.hash(2, 1024,1, usuario.getPassword());
@@ -32,8 +36,26 @@ public class UsuarioService {
         else throw new IllegalStateException("Credenciales incorrectas");
     }
 
-    public void updateUsuario(Usuario usuario){
+    public void updateUsuario(Usuario usuario, String token){
+        String userEmail= jwtUtil.getValue(token);
+        Usuario usuarioFound = usuarioDao.getUsuarioByEmail(userEmail);
+        usuario.setId(usuarioFound.getId());
+        usuario.setEmail(usuarioFound.getEmail());
+        usuario.setPassword(usuarioFound.getPassword());
+        usuario.setFechaNacimiento(usuarioFound.getFechaNacimiento());
+        usuario.setRol(usuarioFound.getRol());
         usuarioDao.updateUsuario(usuario);
+    }
+
+    public UsuarioDto getUsuarioInfo(String token){
+        String userEmail= jwtUtil.getValue(token);
+        Usuario usuarioFound = usuarioDao.getUsuarioByEmail(userEmail);
+        usuarioDto.setNombre(usuarioFound.getNombre());
+        usuarioDto.setDireccion(usuarioFound.getDireccion());
+        usuarioDto.setTelefono(usuarioFound.getTelefono());
+        usuarioDto.setCiudad(usuarioFound.getCiudad());
+        usuarioDto.setCp(usuarioFound.getCp());
+        return usuarioDto;
     }
 
 }

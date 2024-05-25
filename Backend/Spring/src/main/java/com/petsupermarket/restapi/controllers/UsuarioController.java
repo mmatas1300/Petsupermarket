@@ -1,5 +1,6 @@
 package com.petsupermarket.restapi.controllers;
 
+import com.petsupermarket.restapi.dto.UsuarioDto;
 import com.petsupermarket.restapi.models.Usuario;
 import com.petsupermarket.restapi.service.UsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +16,17 @@ public class UsuarioController {
     UsuarioService usuarioService;
 
     @PostMapping
-    public ResponseEntity<Usuario> createUsuario(@RequestBody Usuario usuario){
-        usuarioService.createUsuario(usuario);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+    public ResponseEntity<String> createUsuario(@RequestBody Usuario usuario){
+        try{
+            usuarioService.createUsuario(usuario);
+            return new ResponseEntity<>(HttpStatus.CREATED);
+        }catch (Exception e){
+            return new ResponseEntity<>(e.getMessage(),HttpStatus.BAD_REQUEST);
+        }
+
     }
 
-    @PostMapping("/email")
+    @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody Usuario usuario){
         try{
             String response = usuarioService.login(usuario);
@@ -31,12 +37,22 @@ public class UsuarioController {
     }
 
     @PutMapping
-    public ResponseEntity<String> updateUsuario(@RequestBody Usuario usuario){
+    public ResponseEntity<String> updateUsuario(@RequestHeader(value = "Authorization") String token, @RequestBody Usuario usuario){
         try{
-            usuarioService.updateUsuario((usuario));
+            usuarioService.updateUsuario(usuario,token);
             return new ResponseEntity<>(HttpStatus.OK);
         }catch (Exception e){
             return new ResponseEntity<>(e.getMessage(),HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping
+    public ResponseEntity<UsuarioDto> getUsuarioInfo(@RequestHeader(value = "Authorization") String token){
+        try{
+            UsuarioDto usuarioFound = usuarioService.getUsuarioInfo(token);
+            return new ResponseEntity<>(usuarioFound,HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
     }
 }

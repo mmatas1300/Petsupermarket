@@ -13,7 +13,7 @@ public class CategoriaService {
     @Autowired
     CategoriaDao categoriaDao;
 
-    public List<Categoria> readAllCategoria(){
-        return categoriaDao.readAllCategoria();
+    public void createCategoria(Categoria categoria){
+        categoriaDao.createCategoria(categoria);
     }
 }

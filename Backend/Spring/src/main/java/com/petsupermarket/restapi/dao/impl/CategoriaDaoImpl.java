@@ -7,8 +7,6 @@ import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-
 @Transactional
 @Repository
 public class CategoriaDaoImpl implements CategoriaDao {
@@ -16,8 +14,9 @@ public class CategoriaDaoImpl implements CategoriaDao {
     @PersistenceContext
     EntityManager entityManager;
 
+
     @Override
-    public List<Categoria> readAllCategoria() {
-        return entityManager.createQuery("FROM Categoria").getResultList();
+    public void createCategoria(Categoria categoria) {
+        entityManager.persist(categoria);
     }
 }

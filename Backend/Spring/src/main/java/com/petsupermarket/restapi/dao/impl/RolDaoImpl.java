@@ -17,26 +17,9 @@ public class RolDaoImpl implements RolDao {
     EntityManager entityManager;
 
     @Override
-    public List<Rol> readAllRol() {
-        String query = "FROM Rol";
-        return entityManager.createQuery(query).getResultList();
-    }
-
-    @Override
     public void createRol(Rol rol) {
         entityManager.createNativeQuery("INSERT INTO roles (nombre, descripcion) VALUES (?,?)")
                 .setParameter(1, rol.getNombre())
                 .setParameter(2, rol.getDescripcion()).executeUpdate();
-    }
-
-    @Override
-    public void updateRol(Rol rol) {
-        entityManager.merge(rol);
-    }
-
-    @Override
-    public void deleteRol(Long rolId) {
-        Rol rolFound = entityManager.find(Rol.class, rolId);
-        entityManager.remove(rolFound);
     }
 }

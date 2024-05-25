@@ -5,7 +5,10 @@ import com.petsupermarket.restapi.models.Producto;
 import java.util.List;
 
 public interface ProductoDao {
-    List<Producto> readAllProducto();
-    List<Producto> readAllDiscountProducto();
-    Producto readProducto(Long productoId);
+    void createProducto(Producto producto);
+    List<Producto> getAllProducto();
+    List<Producto> getDiscountProducto();
+    List<Producto> getExistingProducto();
+    Producto getProducto(Long productoId);
+    void updateProducto(Producto producto);
 }

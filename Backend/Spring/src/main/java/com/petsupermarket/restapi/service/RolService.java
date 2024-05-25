@@ -13,19 +13,7 @@ public class RolService {
     @Autowired
     RolDao rolDao;
 
-    public List<Rol> readAllRol(){
-        return rolDao.readAllRol();
-    }
-
     public void createRol(Rol rol){
         rolDao.createRol(rol);
-    }
-
-    public void updateRol(Rol rol){
-        rolDao.updateRol(rol);
-    }
-
-    public void deleteRol(Rol rol){
-        rolDao.deleteRol(rol.getId());
     }
 }

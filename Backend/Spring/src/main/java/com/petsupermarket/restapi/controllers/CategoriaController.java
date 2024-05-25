@@ -3,11 +3,9 @@ package com.petsupermarket.restapi.controllers;
 import com.petsupermarket.restapi.models.Categoria;
 import com.petsupermarket.restapi.service.CategoriaService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/categorias")
@@ -16,8 +14,9 @@ public class CategoriaController {
     @Autowired
     CategoriaService categoriaService;
 
-    @GetMapping
-    public List<Categoria> readAllCategoria(){
-        return categoriaService.readAllCategoria();
+    @PostMapping
+    public ResponseEntity<String> createCategoria(@RequestBody Categoria categoria){
+        categoriaService.createCategoria(categoria);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

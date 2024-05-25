@@ -17,26 +17,13 @@ public class RolController {
     @Autowired
     RolService rolService;
 
-    @GetMapping
-    public List<Rol> getRoles(){
-        return rolService.readAllRol();
-    }
-
     @PostMapping
     public ResponseEntity<HttpStatus> createRol(@RequestBody Rol rol){
-        rolService.createRol(rol);
-        return new ResponseEntity<>(HttpStatus.CREATED);
-    }
-
-    @PutMapping
-    public ResponseEntity<HttpStatus> updateRol(@RequestBody Rol rol){
-        rolService.updateRol(rol);
-        return new ResponseEntity<>(HttpStatus.ACCEPTED);
-    }
-
-    @DeleteMapping
-    public ResponseEntity<HttpStatus> deleteRol(@RequestBody Rol rol){
-        rolService.deleteRol(rol);
-        return new ResponseEntity<>(HttpStatus.OK);
+        try{
+            rolService.createRol(rol);
+            return new ResponseEntity<>(HttpStatus.CREATED);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
     }
 }

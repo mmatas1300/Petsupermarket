@@ -16,26 +16,9 @@ public class AnimalController {
     @Autowired
     AnimalService animalService;
 
-    @GetMapping
-    public List<Animal> readAllAnimal(){
-        return animalService.readAllAnimal();
-    }
-
     @PostMapping
     public ResponseEntity<HttpStatus> createAnimal(@RequestBody Animal animal){
         animalService.createAnimal(animal);
-        return new ResponseEntity<HttpStatus>(HttpStatus.CREATED);
-    }
-
-    @PutMapping
-    public ResponseEntity<HttpStatus> updateAnimal(@RequestBody Animal animal){
-        animalService.updateAnimal(animal);
-        return new ResponseEntity<HttpStatus>(HttpStatus.ACCEPTED);
-    }
-
-    @DeleteMapping
-    public ResponseEntity<HttpStatus> deleteAnimal(@RequestBody Animal animal){
-        animalService.deleteAnimal(animal);
-        return new ResponseEntity<HttpStatus>(HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 }

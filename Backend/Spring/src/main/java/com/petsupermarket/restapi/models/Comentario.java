@@ -1,5 +1,6 @@
 package com.petsupermarket.restapi.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,8 +29,10 @@ public class Comentario {
 
     @ManyToOne
     @JoinColumn(name = "usuario_id", nullable = false)
+    @JsonIgnoreProperties({"id","direccion","telefono","email","password","fechaNacimiento","ciudad","cp","rol"})
     private Usuario usuario;
     @ManyToOne
     @JoinColumn(name = "producto_id", nullable = false)
+    @JsonIgnoreProperties({"nombre","descripcion","contenido","precio","descuento","existencia","imagen","marca","animal","categoria"})
     private Producto producto;
 }

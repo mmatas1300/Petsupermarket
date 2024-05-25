@@ -3,10 +3,10 @@ package com.petsupermarket.restapi.controllers;
 import com.petsupermarket.restapi.models.Producto;
 import com.petsupermarket.restapi.service.ProductoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,18 +17,38 @@ public class ProductoController {
     @Autowired
     ProductoService productoService;
 
+    @PostMapping
+    public ResponseEntity<String> createProducto(@RequestBody Producto producto){
+        try{
+            productoService.createProducto(producto);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
     @GetMapping
-    public List<Producto> readAllProduct(){
-        return productoService.readAllProducto();
+    public List<Producto> getAllProduct(){
+        return productoService.getAllProducto();
     }
 
     @GetMapping("/discount")
-    public List<Producto> readAllDiscountProduct(){
-        return productoService.readAllDiscountProducto();
+    public List<Producto> getDiscountProduct(){
+        return productoService.getDiscountProducto();
+    }
+
+    @GetMapping("/existing")
+    public List<Producto> getExistingProduct(){
+        return productoService.getExistingProducto();
     }
 
     @GetMapping("{id}")
-    public Producto readProduct(@PathVariable("id") Long id){
-        return productoService.readProducto(id);
+    public Producto getProduct(@PathVariable("id") Long id){
+        return productoService.getProducto(id);
+    }
+
+    @PutMapping
+    public void updateProduct(@RequestBody Producto producto){
+        productoService.updateProducto(producto);
     }
 }
