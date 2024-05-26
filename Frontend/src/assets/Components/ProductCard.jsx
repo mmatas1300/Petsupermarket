@@ -7,7 +7,7 @@ export const ProductCard = ({ producto }) => {
                 <img src={producto.imagen} alt={producto.nombre} height={170} className="m-1" />
                 <p className="mt-3 text-wrap text-center">{`${producto.marca} ${producto.nombre} ${producto.contenido}`}</p>
                 {producto.descuento !== 0 ? (<>
-                    <p className="oferta-card d-inline">En oferta</p>
+                    <img src="/icons/descuento.png" alt="descuento" width={70} />
                     <p className="text-decoration-through">{`$${(producto.precio).toFixed(2)}`}</p>
                     <p className="mb-2">{`$${(producto.precio * (100 - producto.descuento) / 100).toFixed(2)}`}</p>
                 </>

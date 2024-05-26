@@ -48,6 +48,10 @@ button{
   border: none;
 }
 
+button:active{
+  transform: scale(95%);
+}
+
 input{
   padding: 10px;
   border-radius: 8px;
@@ -65,12 +69,15 @@ input:focus-visible {
 form{
   background-color: var(--colorNaranjaFondoFormularios);
   border-radius: 8px;
+  max-width: 600px;
+  min-width: 320px;
 }
 
 textarea{
   border-radius: 8px;
   padding: 10px;
   border: none;
+  height: 120px;
 }
 
 textarea:focus-visible {
@@ -160,4 +167,28 @@ textarea:focus-visible {
 
 .bg-none{
   background-color: transparent;
+}
+
+.bg-green{
+  background-color: var(--colorVerdeFondo);
+}
+
+.bg-form{
+  background-color: var(--colorNaranjaFondoFormularios);
+}
+
+.bg-list{
+  background-color: var(--colorNaranjaFondoBarraListas);
+}
+
+.rounded{
+  border-radius: 8px;
+}
+
+.rounded-rigth{
+  border-radius: 0 4px 4px 0;
+}
+
+.rounded-left{
+  border-radius: 4px 0 0 4px;
 }

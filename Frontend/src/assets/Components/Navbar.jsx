@@ -17,19 +17,19 @@ export default function Navbar() {
                 <div className="order-3 collapse navbar-collapse d-lg-flex justify-content-lg-around align-items-lg-center" id="navbarSupportedContent">
                     <div class="d-flex flex-column d-lg-flex flex-lg-row justify-content-lg-around align-items-lg-center w-100">
                         <ul className="navbar-nav order-1 order-lg-0">
-                            <li className="nav-item ml-3">
+                            <li className="nav-item me-2">
                                 <Link to={'/'}>Inicio</Link>
                             </li>
                             <li className="nav-item mx-3">
                                 <Link to={'/productos'}>Productos</Link>
                             </li>
                             <li className="nav-item mx-3 d-lg-none">
-                                <Link to={'/nosotros'}>Mi cuenta</Link>
+                                <Link to={'/login'}>Mi cuenta</Link>
                             </li>
                             <li className="nav-item mx-3">
                                 <Link to={'/contacto'}>Contacto</Link>
                             </li>
-                            <li className="nav-item mr-3">
+                            <li className="nav-item ms-lg-3">
                                 <Link to={'/nosotros'}>Nosotros</Link>
                             </li>
                         </ul>
@@ -45,9 +45,9 @@ export default function Navbar() {
                     <div className="mx-2">
                         <img src="/icons/cart.png" alt="cart" width={60} />
                     </div>
-                    <div className="d-none d-lg-block">
+                    <Link to={'/login'} className="d-none d-lg-block">
                         <UserIcon size={40} />
-                    </div>
+                    </Link>
                 </div>
             </div>
 

@@ -7,22 +7,20 @@ export const FormContact = () => {
             </div>
 
             <div className="row mt-2">
-                <div className="col-12">
+                <div className="col-12 col-lg-1 d-flex align-items-center justify-content-start justify-content-lg-end pe-0">
                     <label htmlFor="">Nombre:</label>
                 </div>
-                <div className="col-12">
+                <div className="col-12 col-lg-5">
+                    <input className="w-100" type="text" />
+                </div>
+                <div className="col-12 col-lg-1 d-flex align-items-center  justify-content-start justify-content-lg-end pe-0">
+                    <label htmlFor="">Correo:</label>
+                </div>
+                <div className="col-12 col-lg-5">
                     <input className="w-100" type="text" />
                 </div>
             </div>
 
-            <div className="row mt-2">
-                <div className="col-12">
-                    <label htmlFor="">Correo:</label>
-                </div>
-                <div className="col-12">
-                    <input className="w-100" type="text" />
-                </div>
-            </div>
 
             <div className="row mt-2">
                 <div className="col-12">

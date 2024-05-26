@@ -4,13 +4,8 @@ export default function Contact() {
     return (
         <div className="my-5 container">
             <div className="row">
-                <div className="col-0 col-lg-4"></div>
-                <div className="col-12 col-lg-4">
                     <FormContact />
-                </div>
-                <div className="col-0 col-lg-4"></div>
             </div>
-
             <div className="row text-center my-4">
                 <h2>Tambien puedes buscarnos en:</h2>
                 <div className="mt-4">

@@ -1,3 +1,5 @@
+import { ContadorProductos } from "./ContadorProductos";
+
 export const ProductInfo = ({producto}) => {
     return (
         <div className="d-flex flex-lg-row flex-column justify-content-center align-items-center mt-4">
@@ -18,7 +20,7 @@ export const ProductInfo = ({producto}) => {
                 <div className="text-center mt-3">
                     {producto.descuento !==0?
                         (<> 
-                            <p className="oferta-card d-inline">En oferta</p>
+                            <img src="/icons/descuento.png" alt="descuento" width={70} />
                             <div className="my-2">
                                 {`Precio de $${(producto.precio).toFixed(2)} a $${(producto.precio * (100 - producto.descuento) / 100).toFixed(2)}`}
                             </div>
@@ -27,7 +29,9 @@ export const ProductInfo = ({producto}) => {
                         </>):
                         (<div className="my-2">{`Precio: $${(producto.precio).toFixed(2)}`}</div>)}
                 </div>
+                
                 <div className="text-center mt-3">
+                    <ContadorProductos existencias={producto.existencia}/>
                     <button>Añadir al carrito</button>
                 </div>
             </div>
