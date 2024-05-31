@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { FormAlert } from "../../Components/FormAlert";
+import { FormAlert } from "../Components/FormAlert";
 
 
-export const useFormAlerta = ()=>{
+export const useFormAlert = ()=>{
     const [isAlert, setIsAlert] = useState(false);
     const [alertMessage, setAlertMessage] = useState("");
 
