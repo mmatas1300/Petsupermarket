@@ -22,4 +22,9 @@ public class RolDaoImpl implements RolDao {
                 .setParameter(1, rol.getNombre())
                 .setParameter(2, rol.getDescripcion()).executeUpdate();
     }
+
+    @Override
+    public Rol getUserRol() {
+        return entityManager.find(Rol.class, 2);
+    }
 }

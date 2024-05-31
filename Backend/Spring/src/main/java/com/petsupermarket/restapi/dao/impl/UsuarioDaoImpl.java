@@ -19,6 +19,8 @@ public class UsuarioDaoImpl implements UsuarioDao {
 
     @Override
     public void createUsuario(Usuario usuario) {
+        List<Usuario> listUsuario = entityManager.createQuery("From Usuario WHERE email =:email").setParameter("email",usuario.getEmail()).getResultList();
+        if(!listUsuario.isEmpty()) throw new IllegalStateException("User already exists with email");
         entityManager.persist(usuario);
     }
 

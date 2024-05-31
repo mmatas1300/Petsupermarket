@@ -5,4 +5,5 @@ import java.util.List;
 
 public interface RolDao {
     void createRol(Rol rol);
+    Rol getUserRol();
 }

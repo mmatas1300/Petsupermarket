@@ -1,7 +1,9 @@
 package com.petsupermarket.restapi.service;
 
+import com.petsupermarket.restapi.dao.RolDao;
 import com.petsupermarket.restapi.dao.UsuarioDao;
 import com.petsupermarket.restapi.dto.UsuarioDto;
+import com.petsupermarket.restapi.models.Rol;
 import com.petsupermarket.restapi.models.Usuario;
 import com.petsupermarket.restapi.utils.JWTUtil;
 import de.mkammerer.argon2.Argon2;
@@ -21,7 +23,11 @@ public class UsuarioService {
     @Autowired
     UsuarioDto usuarioDto;
 
+    @Autowired
+    RolDao rolDao;
+
     public void createUsuario(Usuario usuario){
+        usuario.setRol(rolDao.getUserRol());
         Argon2 argon2 = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2i);
         String hash = argon2.hash(2, 1024,1, usuario.getPassword());
         usuario.setPassword(hash);

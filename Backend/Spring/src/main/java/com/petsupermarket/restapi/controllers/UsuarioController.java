@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/usuarios")
+@CrossOrigin("*")
 public class UsuarioController {
 
     @Autowired
